@@ -218,6 +218,10 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2496310996355366786, guid: 6c54121aecd79934c8532a6f23b6b78e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6104147118067043302, guid: 6c54121aecd79934c8532a6f23b6b78e, type: 3}
       propertyPath: m_Name
       value: shadow wizard
@@ -274,7 +278,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2496310996355366786, guid: 6c54121aecd79934c8532a6f23b6b78e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6c54121aecd79934c8532a6f23b6b78e, type: 3}
 --- !u!1 &1080238289 stripped
 GameObject:
@@ -380,6 +385,31 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 7.42, y: 7.79}
   m_EdgeRadius: 0
+--- !u!114 &1426234786
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426234777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e6eee2d2ed9dede4ab28c059a3549bef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1426234787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1426234777}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9c58728eb77694e74a62b90337a110ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  controller: {fileID: 0}
 --- !u!1 &1488235687
 GameObject:
   m_ObjectHideFlags: 0
