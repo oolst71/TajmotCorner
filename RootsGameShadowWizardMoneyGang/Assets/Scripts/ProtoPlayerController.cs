@@ -139,6 +139,9 @@ public class ProtoPlayerController : MonoBehaviour
         
         if (dashesLeft > 0 && dashtimer <= 0)
         {
+
+            animator.SetTrigger("dash");
+
             dashDirection = moveInput;
 
             dashtimer = 0.3f;
