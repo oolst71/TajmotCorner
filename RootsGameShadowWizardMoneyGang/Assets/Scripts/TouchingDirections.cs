@@ -4,13 +4,27 @@ using UnityEngine;
 
 public class TouchingDirections : MonoBehaviour
 {
+    public ContactFilter2D castFilter;
     CapsuleCollider2D touchingColl;
+    public float groundDistance = 0.05f;
 
-    Rigidbody2D rb;
+    Animator animator;
+
+    RaycastHit2D[] groundHits = new RaycastHit2D[5];
+
+    private bool _isGround = true;
+    public bool IsGround { get {
+            return _isGround;
+        }
+        private set {
+            _isGround = value;
+            animator.SetBool("isGrounded", value);
+        } }
 
     private void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
+        touchingColl = GetComponent<CapsuleCollider2D>();
+        animator = GetComponent<Animator>();
     }
 
 
@@ -20,13 +34,9 @@ public class TouchingDirections : MonoBehaviour
         
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+
     private void FixedUpdate()
     {
-        
+        IsGround = touchingColl.Cast(Vector2.down, castFilter, groundHits, groundDistance) > 0;
     }
 }
