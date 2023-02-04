@@ -4,6 +4,16 @@ using UnityEngine;
 
 public class TouchingDirections : MonoBehaviour
 {
+    CapsuleCollider2D touchingColl;
+
+    Rigidbody2D rb;
+
+    private void Awake()
+    {
+        rb = GetComponent<Rigidbody2D>();
+    }
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -12,6 +22,10 @@ public class TouchingDirections : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+        
+    }
+    private void FixedUpdate()
     {
         
     }
