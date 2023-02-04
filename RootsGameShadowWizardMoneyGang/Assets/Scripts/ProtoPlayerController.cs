@@ -19,6 +19,7 @@ public class ProtoPlayerController : MonoBehaviour
     float dashtimer = 0;
     Vector2 dashDirection;
     float dashSpeed = 20f;
+    bool dashing = false;
 
     TouchingDirections touchingDirections;
 
@@ -87,6 +88,11 @@ public class ProtoPlayerController : MonoBehaviour
         {
             rb.gravityScale = 1;
             rb.velocity = new Vector2(moveInput.x * walkSpeed, rb.velocity.y);
+            if (dashing)
+            {
+                dashing = false;
+                rb.velocity = Vector2.zero;
+            }
         }
 
         if (touchingDirections.IsGround)
@@ -141,6 +147,8 @@ public class ProtoPlayerController : MonoBehaviour
         {
 
             animator.SetTrigger("dash");
+
+            dashing = true;
 
             dashDirection = moveInput;
 
