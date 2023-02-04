@@ -123,7 +123,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4585b9839fadf24fb3a38a4051f5f29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkSpeed: 5
+  walkSpeed: 13
   _IsFacingRight: 1
 --- !u!114 &6801251659060609622
 MonoBehaviour:

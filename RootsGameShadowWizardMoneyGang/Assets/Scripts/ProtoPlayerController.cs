@@ -8,7 +8,7 @@ using UnityEngine.UIElements;
 
 public class ProtoPlayerController : MonoBehaviour
 {
-    public float walkSpeed = 5f;
+    public float walkSpeed = 10f;
 
     Vector2 moveInput;
 
@@ -18,7 +18,7 @@ public class ProtoPlayerController : MonoBehaviour
     int dashesLeft = 2;
     float dashtimer = 0;
     Vector2 dashDirection;
-    float dashSpeed = 20f;
+    float dashSpeed = 35f;
     bool dashing = false;
 
     TouchingDirections touchingDirections;
@@ -50,7 +50,7 @@ public class ProtoPlayerController : MonoBehaviour
 
     Rigidbody2D rb;
     Animator animator;
-    private float jumpImpulse = 10f;
+    private float jumpImpulse = 22f;
 
 
 
@@ -86,7 +86,7 @@ public class ProtoPlayerController : MonoBehaviour
         //Normal Move
         if (dashtimer <= 0)
         {
-            rb.gravityScale = 1;
+            rb.gravityScale = 5;
             rb.velocity = new Vector2(moveInput.x * walkSpeed, rb.velocity.y);
             if (dashing)
             {
@@ -116,7 +116,8 @@ public class ProtoPlayerController : MonoBehaviour
 
     private void SetFacingDirection(Vector2 moveInput)
     {
-        
+        if (!dashing)
+        {
         if (moveInput.x > 0 && !IsFacingRight)
         {
 
@@ -127,6 +128,8 @@ public class ProtoPlayerController : MonoBehaviour
 
             IsFacingRight = false;
         }
+        }
+
     }
 
     public void OnJump(InputAction.CallbackContext context)
@@ -152,7 +155,7 @@ public class ProtoPlayerController : MonoBehaviour
 
             dashDirection = moveInput;
 
-            dashtimer = 0.3f;
+            dashtimer = 0.25f;
 
             dashesLeft--;
         }
