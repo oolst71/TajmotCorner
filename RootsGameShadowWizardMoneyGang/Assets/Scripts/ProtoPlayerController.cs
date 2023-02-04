@@ -21,6 +21,8 @@ public class ProtoPlayerController : MonoBehaviour
     float dashSpeed = 35f;
     bool dashing = false;
 
+    //SpriteRenderer render;
+
     TouchingDirections touchingDirections;
 
     public bool IsMoving { get
