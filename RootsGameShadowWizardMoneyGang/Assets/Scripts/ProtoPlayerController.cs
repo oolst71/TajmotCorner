@@ -20,7 +20,7 @@ public class ProtoPlayerController : MonoBehaviour
     float dashtimer = 0;
     Vector2 dashDirection;
     float dashSpeed = 35f;
-    bool dashing = false;
+    public bool dashing = false;
 
     SpriteRenderer render;
 
