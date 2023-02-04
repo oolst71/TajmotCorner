@@ -19,7 +19,7 @@ GameObject:
   - component: {fileID: -4125138314839466154}
   m_Layer: 0
   m_Name: PrototypePlayer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -125,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   walkSpeed: 13
+  dashing: 0
   tr: {fileID: -4125138314839466154}
   _IsFacingRight: 1
 --- !u!114 &6801251659060609622
