@@ -14,9 +14,11 @@ public class ProtoPlayerController : MonoBehaviour
 
     private bool _isMoving = false;
 
+    // Dash shit
     int dashesLeft = 2;
     float dashtimer = 0;
     Vector2 dashDirection;
+    float dashSpeed = 20f;
 
     TouchingDirections touchingDirections;
 
@@ -72,14 +74,28 @@ public class ProtoPlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        // Dash shit
+        if (dashtimer > 0)
+        {
+            dashtimer -= (1 * Time.deltaTime);
+            rb.velocity = new Vector2(dashDirection.x * dashSpeed, dashDirection.y * dashSpeed);
+            rb.gravityScale = 0;
+        }
 
-        
+        //Normal Move
+        if (dashtimer <= 0)
+        {
+            rb.gravityScale = 1;
+            rb.velocity = new Vector2(moveInput.x * walkSpeed, rb.velocity.y);
+        }
 
-
-        rb.velocity = new Vector2(moveInput.x * walkSpeed, rb.velocity.y);
+        if (touchingDirections.IsGround)
+        {
+            dashesLeft = 2;
+        }
+       
 
         animator.SetFloat("yVelocity", rb.velocity.y);
-
 
     }
 
@@ -116,8 +132,19 @@ public class ProtoPlayerController : MonoBehaviour
         }
     }
 
+
+    //When Dash button is pressed
     public void OnDash(InputAction.CallbackContext context)
     {
-       
+        
+        if (dashesLeft > 0 && dashtimer <= 0)
+        {
+            dashDirection = moveInput;
+
+            dashtimer = 0.3f;
+
+            dashesLeft--;
+        }
+    
     }
 }
