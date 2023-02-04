@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UIElements;
@@ -21,7 +22,7 @@ public class ProtoPlayerController : MonoBehaviour
     float dashSpeed = 35f;
     bool dashing = false;
 
-    //SpriteRenderer render;
+    SpriteRenderer render;
 
     [SerializeField] private TrailRenderer tr;
 
@@ -63,6 +64,7 @@ public class ProtoPlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         touchingDirections = GetComponent<TouchingDirections>();
+        render = GetComponent<SpriteRenderer>();
     }
 
     // Start is called before the first frame update
@@ -166,6 +168,8 @@ public class ProtoPlayerController : MonoBehaviour
             dashesLeft--;
 
             tr.emitting = true;
+
+            
         }
     
     }
