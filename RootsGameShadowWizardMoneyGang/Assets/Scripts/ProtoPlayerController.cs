@@ -23,6 +23,8 @@ public class ProtoPlayerController : MonoBehaviour
 
     //SpriteRenderer render;
 
+    [SerializeField] private TrailRenderer tr;
+
     TouchingDirections touchingDirections;
 
     public bool IsMoving { get
@@ -95,6 +97,7 @@ public class ProtoPlayerController : MonoBehaviour
                 dashing = false;
                 rb.velocity = Vector2.zero;
                 SetFacingDirection(moveInput);
+                tr.emitting = false;
             }
         }
 
@@ -161,6 +164,8 @@ public class ProtoPlayerController : MonoBehaviour
             dashtimer = 0.25f;
 
             dashesLeft--;
+
+            tr.emitting = true;
         }
     
     }
