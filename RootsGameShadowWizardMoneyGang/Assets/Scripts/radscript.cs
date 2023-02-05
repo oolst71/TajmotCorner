@@ -7,6 +7,9 @@ public class radscript : MonoBehaviour
 {
     public GameObject ally;
 
+    public float movespeed;
+
+    public float distance;
 
     private void Awake()
     {
@@ -28,6 +31,17 @@ public class radscript : MonoBehaviour
 
     private void FixedUpdate()
     {
+
+        distance = Vector2.Distance(transform.position, ally.transform.position);
+
+        if (distance > 40)
+        {
+            movespeed = 30;
+        } else
+        {
+            movespeed = 5 + (25 * distance / 40);
+        }
+
         if (ally.transform.position.x < transform.position.x)
         {
             transform.localScale = new Vector3(-2, 2, 2);
@@ -36,6 +50,6 @@ public class radscript : MonoBehaviour
             transform.localScale = new Vector3(2, 2, 2);
         }
 
-        transform.position = Vector2.MoveTowards(transform.position, ally.transform.position, 7 * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, ally.transform.position, movespeed * Time.deltaTime);
     }
 }
