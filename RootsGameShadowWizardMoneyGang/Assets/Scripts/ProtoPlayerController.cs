@@ -185,6 +185,7 @@ public class ProtoPlayerController : MonoBehaviour
     public void OnDeath()
     {
         rb.velocity = Vector2.zero;
+        tr.emitting = false;
         transform.position = new Vector3(respawnPoint.transform.position.x, respawnPoint.transform.position.y, transform.position.z);
     }
 
