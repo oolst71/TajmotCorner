@@ -160,7 +160,7 @@ public class ProtoPlayerController : MonoBehaviour
     public void OnDash(InputAction.CallbackContext context)
     {
         
-        if (dashesLeft > 0 && dashtimer <= 0 && IsMoving)
+        if (dashesLeft > 0 && dashtimer <= 0 && IsMoving && context.started)
         {
 
             animator.SetTrigger("dash");
