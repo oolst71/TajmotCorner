@@ -22,6 +22,7 @@ public class ProtoPlayerController : MonoBehaviour
     float dashSpeed = 35f;
     public bool dashing = false;
     private float coyoteTimer = 0f;
+    public GameObject respawnPoint;
 
     SpriteRenderer render;
 
@@ -178,5 +179,11 @@ public class ProtoPlayerController : MonoBehaviour
             
         }
     
+    }
+
+    public void OnDeath()
+    {
+        rb.velocity = Vector2.zero;
+        transform.position = new Vector3(respawnPoint.transform.position.x, respawnPoint.transform.position.y, transform.position.z);
     }
 }
