@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 
@@ -185,5 +186,10 @@ public class ProtoPlayerController : MonoBehaviour
     {
         rb.velocity = Vector2.zero;
         transform.position = new Vector3(respawnPoint.transform.position.x, respawnPoint.transform.position.y, transform.position.z);
+    }
+
+    public void LevelEnd(int nextIndex)
+    {
+        SceneManager.LoadScene(nextIndex);
     }
 }
