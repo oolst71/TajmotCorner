@@ -36,6 +36,6 @@ public class radscript : MonoBehaviour
             transform.localScale = new Vector3(2, 2, 2);
         }
 
-        transform.position = Vector2.MoveTowards(transform.position, ally.transform.position, 0.1f);
+        transform.position = Vector2.MoveTowards(transform.position, ally.transform.position, 7 * Time.deltaTime);
     }
 }
