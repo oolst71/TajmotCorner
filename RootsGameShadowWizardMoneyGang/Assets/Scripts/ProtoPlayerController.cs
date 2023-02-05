@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using UnityEngine.UIElements;
 
 
@@ -22,6 +23,7 @@ public class ProtoPlayerController : MonoBehaviour
     float dashSpeed = 35f;
     public bool dashing = false;
     private float coyoteTimer = 0f;
+    public GameObject respawnPoint;
 
     SpriteRenderer render;
 
@@ -178,5 +180,17 @@ public class ProtoPlayerController : MonoBehaviour
             
         }
     
+    }
+
+    public void OnDeath()
+    {
+        rb.velocity = Vector2.zero;
+        tr.emitting = false;
+        transform.position = new Vector3(respawnPoint.transform.position.x, respawnPoint.transform.position.y, transform.position.z);
+    }
+
+    public void LevelEnd(int nextIndex)
+    {
+        SceneManager.LoadScene(nextIndex);
     }
 }
