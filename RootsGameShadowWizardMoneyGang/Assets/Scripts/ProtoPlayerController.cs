@@ -21,6 +21,7 @@ public class ProtoPlayerController : MonoBehaviour
     Vector2 dashDirection;
     float dashSpeed = 35f;
     public bool dashing = false;
+    private float coyoteTimer = 0f;
 
     SpriteRenderer render;
 
@@ -106,6 +107,11 @@ public class ProtoPlayerController : MonoBehaviour
         if (touchingDirections.IsGround)
         {
             dashesLeft = 2;
+            coyoteTimer = 0;
+        }
+        else
+        {
+            coyoteTimer += Time.deltaTime;
         }
        
 
@@ -142,7 +148,7 @@ public class ProtoPlayerController : MonoBehaviour
 
     public void OnJump(InputAction.CallbackContext context)
     {
-        if (context.started && touchingDirections.IsGround)
+        if (context.started && coyoteTimer < 0.12f)
         {
             animator.SetTrigger("jump");
             rb.velocity = new Vector2(rb.velocity.x, jumpImpulse);
