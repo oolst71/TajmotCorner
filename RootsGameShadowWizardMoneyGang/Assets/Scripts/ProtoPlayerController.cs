@@ -85,7 +85,7 @@ public class ProtoPlayerController : MonoBehaviour
     private void FixedUpdate()
     {
         // Dash shit
-        if (dashtimer > 0)
+        if (dashtimer > 0 && dashing)
         {
             dashtimer -= (1 * Time.deltaTime);
             rb.velocity = new Vector2(dashDirection.x * dashSpeed, dashDirection.y * dashSpeed);
@@ -185,7 +185,10 @@ public class ProtoPlayerController : MonoBehaviour
     public void OnDeath()
     {
         rb.velocity = Vector2.zero;
+        dashing = false;
+        dashtimer = -1;
         tr.emitting = false;
+        SetFacingDirection(moveInput);
         transform.position = new Vector3(respawnPoint.transform.position.x, respawnPoint.transform.position.y, transform.position.z);
     }
 
