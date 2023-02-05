@@ -36,10 +36,10 @@ public class radscript : MonoBehaviour
 
         if (distance > 40)
         {
-            movespeed = 30;
+            movespeed = 20;
         } else
         {
-            movespeed = 5 + (25 * distance / 40);
+            movespeed = 3 + (17 * distance / 40);
         }
 
         if (ally.transform.position.x < transform.position.x)
