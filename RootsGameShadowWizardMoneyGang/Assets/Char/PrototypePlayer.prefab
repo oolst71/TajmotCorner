@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 4821056056066689152}
   - component: {fileID: 7137487770752631105}
   - component: {fileID: -4125138314839466154}
+  - component: {fileID: 5192721291825636629}
   m_Layer: 0
   m_Name: PrototypePlayer
   m_TagString: Player
@@ -126,6 +127,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   walkSpeed: 13
   dashing: 0
+  respawnPoint: {fileID: 0}
   tr: {fileID: -4125138314839466154}
   _IsFacingRight: 1
 --- !u!114 &6801251659060609622
@@ -249,6 +251,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: a095421a-9441-4463-83e3-06f8d6daa933
     m_ActionName: Player/Dash[/Keyboard/u]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 5afe0252-bd58-4908-8219-ca865c1f49b7
+    m_ActionName: Player/New action
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: Player
@@ -425,3 +431,16 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 0
+--- !u!114 &5192721291825636629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7470757912999547252}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e039509ccbdd4fa4c84c3b742985aa8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timerText: {fileID: 0}
