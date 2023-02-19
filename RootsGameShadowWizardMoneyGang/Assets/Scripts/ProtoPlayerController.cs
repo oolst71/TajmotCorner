@@ -96,7 +96,7 @@ public class ProtoPlayerController : MonoBehaviour
         if (dashtimer <= 0)
         {
             rb.gravityScale = 5;
-            rb.velocity = new Vector2(Input.GetAxis("Horizontal") * walkSpeed, rb.velocity.y);
+            rb.velocity = new Vector2(moveInput.x * walkSpeed, rb.velocity.y);
             if (dashing)
             {
                 dashing = false;
